@@ -45,10 +45,13 @@ export default function App() {
       <Text>deviceYearClass: {Device.deviceYearClass}</Text>
       <Text>osName: {Device.osName}</Text>
       <Text>osVersion: {Device.osVersion}</Text>
-      <Text>modelID (ios only): {Device.modelId}</Text>
       <Text>modelName: {Device.modelName}</Text>
-      <Text>platformApiLevel (android only): {Device.platformApiLevel}</Text>
       <Text>location: {JSON.stringify(location) || errorMsg}</Text>
+      <Text style={{ fontWeight: 'bold' }}>{'\n'}android only:</Text>
+      <Text>platformApiLevel: {Device.platformApiLevel}</Text>
+
+      <Text style={{ fontWeight: 'bold' }}>{'\n'}ios only:</Text>
+      <Text>modelID: {Device.modelId}</Text>
       <StatusBar style='auto' />
     </View>
   );
