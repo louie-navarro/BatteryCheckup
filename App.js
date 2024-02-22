@@ -5,6 +5,7 @@ import * as Location from 'expo-location';
 import MapView from 'react-native-maps';
 import { StyleSheet, Text, View } from 'react-native';
 import { useEffect, useState } from 'react';
+import * as Device from 'expo-device';
 
 export default function App() {
   const { lowPowerMode, batteryLevel, batteryState } = usePowerState();
@@ -43,6 +44,17 @@ export default function App() {
       <Text>lowPowerMode: {lowPowerMode}</Text>
       <Text>batteryLevel: {batteryLevel}</Text>
       <Text>batteryState: {batteryState}</Text>
+      <Text>brand: {Device.brand}</Text>
+      <Text>type: {Device.deviceType}</Text>
+      <Text>manufacturer: {Device.manufacturer}</Text>
+      <Text>deviceYearClass: {Device.deviceYearClass}</Text>
+      <Text>osName: {Device.osName}</Text>
+      <Text>osVersion: {Device.osVersion}</Text>
+      {/* ios only */}
+      <Text>modelID: {Device.modelId}</Text> 
+      <Text>modelName: {Device.modelName}</Text>
+      {/* andoid only */}
+      <Text>platformApiLevel: {Device.platformApiLevel}</Text>
       <StatusBar style='auto' />
     </View>
   );
