@@ -2,7 +2,6 @@ import { StatusBar } from 'expo-status-bar';
 import { usePowerState } from 'expo-battery';
 import * as Brightness from 'expo-brightness';
 import * as Location from 'expo-location';
-import MapView from 'react-native-maps';
 import { StyleSheet, Text, View } from 'react-native';
 import { useEffect, useState } from 'react';
 import * as Device from 'expo-device';
@@ -11,6 +10,7 @@ export default function App() {
   const { lowPowerMode, batteryLevel, batteryState } = usePowerState();
   const [brightness, setBrightness] = useState();
   const [location, setLocation] = useState(null);
+  const [region, setRegion] = useState(null);
   const [errorMsg, setErrorMsg] = useState(null);
 
   useEffect(() => {
@@ -26,6 +26,10 @@ export default function App() {
 
       let location = await Location.getCurrentPositionAsync({});
       setLocation(location);
+      setRegion({
+        latitude: location.coords.latitude,
+        longitude: location.coords.longitude,
+      });
     })();
   }, []);
 
@@ -45,14 +49,6 @@ export default function App() {
       <Text>modelName: {Device.modelName}</Text>
       <Text>platformApiLevel (android only): {Device.platformApiLevel}</Text>
       <Text>location: {JSON.stringify(location) || errorMsg}</Text>
-      {location && (
-        <MapView
-          region={{
-            latitude: location.coords.latitude,
-            longitude: location.coords.longitude,
-          }}
-        />
-      )}
       <StatusBar style='auto' />
     </View>
   );
