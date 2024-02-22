@@ -31,15 +31,6 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <Text>location: {JSON.stringify(location) || errorMsg}</Text>
-      {location && (
-        <MapView
-          region={{
-            latitude: location.coords.latitude,
-            longitude: location.coords.longitude,
-          }}
-        />
-      )}
       <Text>brightness: {brightness}</Text>
       <Text>lowPowerMode: {lowPowerMode?.toString()}</Text>
       <Text>batteryLevel: {batteryLevel}</Text>
@@ -53,6 +44,15 @@ export default function App() {
       <Text>modelID (ios only): {Device.modelId}</Text>
       <Text>modelName: {Device.modelName}</Text>
       <Text>platformApiLevel (android only): {Device.platformApiLevel}</Text>
+      <Text>location: {JSON.stringify(location) || errorMsg}</Text>
+      {location && (
+        <MapView
+          region={{
+            latitude: location.coords.latitude,
+            longitude: location.coords.longitude,
+          }}
+        />
+      )}
       <StatusBar style='auto' />
     </View>
   );
