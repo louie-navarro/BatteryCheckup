@@ -25,16 +25,16 @@ export default function App() {
       }
 
       let location = await Location.getCurrentPositionAsync({});
-      setLocation(JSON.stringify(location));
+      setLocation(location);
     })();
   }, []);
 
   return (
     <View style={styles.container}>
-      <Text>location: {location || errorMsg}</Text>
+      <Text>location: {JSON.stringify(location) || errorMsg}</Text>
       {location && (
         <MapView
-          initialRegion={{
+          region={{
             latitude: location.coords.latitude,
             longitude: location.coords.longitude,
           }}
@@ -51,7 +51,7 @@ export default function App() {
       <Text>osName: {Device.osName}</Text>
       <Text>osVersion: {Device.osVersion}</Text>
       {/* ios only */}
-      <Text>modelID: {Device.modelId}</Text> 
+      <Text>modelID: {Device.modelId}</Text>
       <Text>modelName: {Device.modelName}</Text>
       {/* andoid only */}
       <Text>platformApiLevel: {Device.platformApiLevel}</Text>
