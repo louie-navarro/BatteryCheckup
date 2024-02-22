@@ -50,11 +50,9 @@ export default function App() {
       <Text>deviceYearClass: {Device.deviceYearClass}</Text>
       <Text>osName: {Device.osName}</Text>
       <Text>osVersion: {Device.osVersion}</Text>
-      {/* ios only */}
-      <Text>modelID: {Device.modelId}</Text>
+      <Text>modelID (ios only): {Device.modelId}</Text>
       <Text>modelName: {Device.modelName}</Text>
-      {/* andoid only */}
-      <Text>platformApiLevel: {Device.platformApiLevel}</Text>
+      <Text>platformApiLevel (android only): {Device.platformApiLevel}</Text>
       <StatusBar style='auto' />
     </View>
   );
