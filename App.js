@@ -41,7 +41,7 @@ export default function App() {
         />
       )}
       <Text>brightness: {brightness}</Text>
-      <Text>lowPowerMode: {lowPowerMode}</Text>
+      <Text>lowPowerMode: {lowPowerMode?.toString()}</Text>
       <Text>batteryLevel: {batteryLevel}</Text>
       <Text>batteryState: {batteryState}</Text>
       <Text>brand: {Device.brand}</Text>
