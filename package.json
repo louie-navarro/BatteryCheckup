@@ -11,7 +11,7 @@
   "dependencies": {
     "expo": "~50.0.7",
     "expo-battery": "~7.7.2",
-    "expo-battery-plus": "*",
+    "expo-battery-plus": "file:./packages/expo-battery-plus",
     "expo-brightness": "^11.8.0",
     "expo-device": "~5.9.3",
     "expo-location": "^16.5.3",
@@ -22,13 +22,5 @@
   "devDependencies": {
     "@babel/core": "^7.20.0"
   },
-  "private": true,
-  "expo": {
-    "autolinking": {
-      "nativeModulesDir": "../packages"
-    }
-  },
-  "workspaces": [
-    "packages/*"
-  ]
+  "private": true
 }
