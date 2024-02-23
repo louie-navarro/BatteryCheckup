@@ -5174,11 +5174,6 @@ react-is@^17.0.1:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-17.0.2.tgz#e691d4a8e9c789365655539ab372762b0efb54f0"
   integrity sha512-w2GsyukL62IJnlaff/nRegPQR94C/XXamvMWmSHRJ4y7Ts/4ocGRmTHvOs8PSE6pB3dWOrD/nueuU5sduBsQ4w==
 
-react-native-full-battery-status@^0.1.10:
-  version "0.1.10"
-  resolved "https://registry.yarnpkg.com/react-native-full-battery-status/-/react-native-full-battery-status-0.1.10.tgz#a1b263eadb138c147bed1983cfffb315ae782add"
-  integrity sha512-2hqXdD0pLlpUqt+cwM+UGRiH8BHWAysk1Dud4Mpi5DO3ZmUIi6AVSb8wJr/h7hZwbJbDv+p46xBjxseQ6c6onw==
-
 react-native@0.73.4:
   version "0.73.4"
   resolved "https://registry.yarnpkg.com/react-native/-/react-native-0.73.4.tgz#81e07d4e7b6308c4649d5fa24038c0e87b17f2e1"
