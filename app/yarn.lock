@@ -3183,7 +3183,7 @@ expo-asset@~9.0.2:
     invariant "^2.2.4"
     md5-file "^3.2.3"
 
-"expo-battery-plus@file:./packages/expo-battery-plus":
+"expo-battery-plus@file:../packages/expo-battery-plus":
   version "0.1.0"
 
 expo-battery@~7.7.2:
