@@ -19,7 +19,10 @@
     "expo-battery-plus",
     "ExpoBatteryPlus"
   ],
-  "dependencies": {},
+  "author": "Louie Navarro <louie.navarro@asurion.com> (https://github.com/louie-navarro)",
+  "repository": "https://github.com/louie-navarro/BatteryCheckup/blob/main/packages/expo-battery-plus",
+  "homepage": "https://github.com/louie-navarro/BatteryCheckup/blob/main/packages/expo-battery-plus#readme",
+  "license": "MIT",
   "devDependencies": {
     "@types/react": "^18.0.25",
     "expo-module-scripts": "^3.4.0",
