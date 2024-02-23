@@ -12,7 +12,7 @@ Pod::Spec.new do |s|
   s.homepage       = package['homepage']
   s.platform       = :ios, '13.4'
   s.swift_version  = '5.4'
-  s.source         = { git: 'https://github.com/louie-navarro/expo-battery-plus' }
+  s.source         = { git: 'https://github.com/louie-navarro/BatteryCheckup.git' }
   s.static_framework = true
 
   s.dependency 'ExpoModulesCore'
