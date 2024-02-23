@@ -13,6 +13,7 @@ export default function App() {
   const [location, setLocation] = useState(null);
   const [region, setRegion] = useState(null);
   const [errorMsg, setErrorMsg] = useState(null);
+  const [batteryData, setBatteryData] = useState(null);
 
   useEffect(() => {
     (async () => {
@@ -31,6 +32,9 @@ export default function App() {
         latitude: location.coords.latitude,
         longitude: location.coords.longitude,
       });
+
+      let batteryData = await BatteryPlus.getBatteryData();
+      setBatteryData(batteryData);
     })();
   }, []);
 
@@ -48,11 +52,14 @@ export default function App() {
       <Text>osVersion: {Device.osVersion}</Text>
       <Text>modelName: {Device.modelName}</Text>
       <Text>location: {JSON.stringify(location) || errorMsg}</Text>
+
       <Text style={{ fontWeight: 'bold' }}>{'\n'}android only:</Text>
       <Text>platformApiLevel: {Device.platformApiLevel}</Text>
+      <Text>batteryData: {JSON.stringify(batteryData)}</Text>
 
       <Text style={{ fontWeight: 'bold' }}>{'\n'}ios only:</Text>
       <Text>modelID: {Device.modelId}</Text>
+
       <StatusBar style='auto' />
     </View>
   );
