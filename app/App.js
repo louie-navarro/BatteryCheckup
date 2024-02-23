@@ -5,6 +5,7 @@ import * as Location from 'expo-location';
 import { StyleSheet, Text, View } from 'react-native';
 import { useEffect, useState } from 'react';
 import * as Device from 'expo-device';
+import * as BatteryPlus from 'expo-battery-plus';
 
 export default function App() {
   const { lowPowerMode, batteryLevel, batteryState } = usePowerState();
