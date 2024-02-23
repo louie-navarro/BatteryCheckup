@@ -17,9 +17,6 @@ export default function App() {
 
   useEffect(() => {
     (async () => {
-      const brightness = await Brightness.getBrightnessAsync();
-      setBrightness(brightness);
-
       const { status } = await Location.requestForegroundPermissionsAsync();
       if (status !== 'granted') {
         setErrorMsg('Permission to access location was denied');
@@ -32,10 +29,14 @@ export default function App() {
         latitude: location.coords.latitude,
         longitude: location.coords.longitude,
       });
-
-      const batteryData = await BatteryPlus.getBatteryData();
-      setBatteryData(batteryData);
     })();
+
+    Brightness.getBrightnessAsync().then((brightness) =>
+      setBrightness(brightness)
+    );
+    BatteryPlus.getBatteryData().then((batteryData) =>
+      setBatteryData(batteryData)
+    );
   }, []);
 
   return (
