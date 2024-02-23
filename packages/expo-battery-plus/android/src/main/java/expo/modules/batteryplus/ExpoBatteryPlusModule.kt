@@ -1,47 +1,40 @@
 package expo.modules.batteryplus
 
+import android.content.Intent
+import android.content.IntentFilter
+import android.os.BatteryManager
+import expo.modules.kotlin.exception.Exceptions
 import expo.modules.kotlin.modules.Module
 import expo.modules.kotlin.modules.ModuleDefinition
 
 class ExpoBatteryPlusModule : Module() {
-  // Each module class must implement the definition function. The definition consists of components
-  // that describes the module's functionality and behavior.
-  // See https://docs.expo.dev/modules/module-api for more details about available components.
   override fun definition() = ModuleDefinition {
-    // Sets the name of the module that JavaScript code will use to refer to the module. Takes a string as an argument.
-    // Can be inferred from module's class name, but it's recommended to set it explicitly for clarity.
-    // The module will be accessible from `requireNativeModule('ExpoBatteryPlus')` in JavaScript.
     Name("ExpoBatteryPlus")
-
-    // Sets constant properties on the module. Can take a dictionary or a closure that returns a dictionary.
-    Constants(
-      "PI" to Math.PI
-    )
-
-    // Defines event names that the module can send to JavaScript.
-    Events("onChange")
-
-    // Defines a JavaScript synchronous function that runs the native code on the JavaScript thread.
-    Function("hello") {
-      "Hello world! 👋"
-    }
 
     // Defines a JavaScript function that always returns a Promise and whose native code
     // is by default dispatched on the different thread than the JavaScript runtime runs on.
-    AsyncFunction("setValueAsync") { value: String ->
-      // Send an event to JavaScript.
-      sendEvent("onChange", mapOf(
-        "value" to value
-      ))
+    AsyncFunction("getBatteryData") {
+      val context = appContext.reactContext ?: throw Exceptions.ReactContextLost()
+      val intent =  IntentFilter(Intent.ACTION_BATTERY_CHANGED).let { filter ->
+        context.registerReceiver(null, filter)
+      }
+
+      val health = intent?.getIntExtra(BatteryManager.EXTRA_HEALTH, -1) ?: -1
+      val healthText =  when(health) {
+        BatteryManager.BATTERY_HEALTH_GOOD -> "GOOD"
+        BatteryManager.BATTERY_HEALTH_COLD -> "COLD"
+        BatteryManager.BATTERY_HEALTH_OVERHEAT -> "OVER-HEAT"
+        BatteryManager.BATTERY_HEALTH_DEAD -> "DEAD"
+        BatteryManager.BATTERY_HEALTH_OVER_VOLTAGE -> "OVER-VOLTAGE"
+        BatteryManager.BATTERY_HEALTH_UNSPECIFIED_FAILURE -> "FAILED"
+        else -> "UNKNOWN"
+      }
+
+      return@AsyncFunction mapOf("health" to healthText)
     }
 
     // Enables the module to be used as a native view. Definition components that are accepted as part of
     // the view definition: Prop, Events.
-    View(ExpoBatteryPlusView::class) {
-      // Defines a setter for the `name` prop.
-      Prop("name") { view: ExpoBatteryPlusView, prop: String ->
-        println(prop)
-      }
-    }
+
   }
 }
