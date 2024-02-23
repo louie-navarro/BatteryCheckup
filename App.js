@@ -20,20 +20,20 @@ export default function App() {
       const brightness = await Brightness.getBrightnessAsync();
       setBrightness(brightness);
 
-      let { status } = await Location.requestForegroundPermissionsAsync();
+      const { status } = await Location.requestForegroundPermissionsAsync();
       if (status !== 'granted') {
         setErrorMsg('Permission to access location was denied');
         return;
       }
 
-      let location = await Location.getCurrentPositionAsync({});
+      const location = await Location.getCurrentPositionAsync({});
       setLocation(location);
       setRegion({
         latitude: location.coords.latitude,
         longitude: location.coords.longitude,
       });
 
-      let batteryData = await BatteryPlus.getBatteryData();
+      const batteryData = await BatteryPlus.getBatteryData();
       setBatteryData(batteryData);
     })();
   }, []);
