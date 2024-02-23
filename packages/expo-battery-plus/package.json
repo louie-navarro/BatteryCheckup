@@ -11,9 +11,7 @@
     "test": "expo-module test",
     "prepare": "expo-module prepare",
     "prepublishOnly": "expo-module prepublishOnly",
-    "expo-module": "expo-module",
-    "open:ios": "open -a \"Xcode\" example/ios",
-    "open:android": "open -a \"Android Studio\" example/android"
+    "expo-module": "expo-module"
   },
   "keywords": [
     "react-native",
@@ -21,13 +19,6 @@
     "expo-battery-plus",
     "ExpoBatteryPlus"
   ],
-  "repository": "https://github.com/louie-navarro/expo-battery-plus",
-  "bugs": {
-    "url": "https://github.com/louie-navarro/expo-battery-plus/issues"
-  },
-  "author": "Louie Navarro <louie.navarro@asurion.com> (https://github.com/louie-navarro)",
-  "license": "MIT",
-  "homepage": "https://github.com/louie-navarro/expo-battery-plus#readme",
   "dependencies": {},
   "devDependencies": {
     "@types/react": "^18.0.25",
