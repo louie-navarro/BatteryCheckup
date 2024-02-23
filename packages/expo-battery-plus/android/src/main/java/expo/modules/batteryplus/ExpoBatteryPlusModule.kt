@@ -13,7 +13,7 @@ class ExpoBatteryPlusModule : Module() {
 
     // Defines a JavaScript function that always returns a Promise and whose native code
     // is by default dispatched on the different thread than the JavaScript runtime runs on.
-    AsyncFunction("getBatteryData") {
+    AsyncFunction("getBatteryData") { ->
       val context = appContext.reactContext ?: throw Exceptions.ReactContextLost()
       val intent =  IntentFilter(Intent.ACTION_BATTERY_CHANGED).let { filter ->
         context.registerReceiver(null, filter)

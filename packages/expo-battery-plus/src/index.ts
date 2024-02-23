@@ -1,7 +1,10 @@
 import ExpoBatteryPlusModule from './ExpoBatteryPlusModule';
+import { BatteryData } from './ExpoBatteryPlusModule.types';
 
 export async function getBatteryData() {
-  return (await ExpoBatteryPlusModule.asyncFunction('getBatteryData')) as {
-    health: string;
-  } | null;
+  if (!ExpoBatteryPlusModule.getBatteryData) {
+    return null;
+  }
+
+  return (await ExpoBatteryPlusModule.getBatteryData()) as BatteryData;
 }
