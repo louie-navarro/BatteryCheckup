@@ -8,5 +8,5 @@ export function getBatteryData(): BatteryData | null {
   if (!BatteryPlusModule.getBatteryData) {
     return null;
   }
-  return BatteryPlusModule.getBatteryData() as BatteryData;
+  return BatteryPlusModule.getBatteryData();
 }
