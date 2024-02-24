@@ -1,6 +1,6 @@
 {
   "private": true,
-  "name": "monorepo",
+  "name": "battery-checkup",
   "version": "1.0.0",
   "workspaces": [
     "apps/*",
