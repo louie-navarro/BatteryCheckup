@@ -7,7 +7,7 @@ class BatteryPlusModule : Module() {
   override fun definition() = ModuleDefinition {
     Name("BatteryPlus")
 
-    AsyncFunction("getBatteryData") { ->
+    Function("getBatteryData") { ->
       val context = appContext.reactContext ?: throw Exceptions.ReactContextLost()
       val intent =  IntentFilter(Intent.ACTION_BATTERY_CHANGED).let { filter ->
         context.registerReceiver(null, filter)
@@ -24,9 +24,8 @@ class BatteryPlusModule : Module() {
         else -> "UNKNOWN"
       }
 
-      return@AsyncFunction mapOf("health" to healthText)
+      return@Function mapOf("health" to healthText)
     }
 
-  }
   }
 }

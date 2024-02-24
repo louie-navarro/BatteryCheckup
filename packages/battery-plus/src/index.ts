@@ -4,9 +4,9 @@ import { BatteryData } from './BatteryPlusModule.types';
 /**
  * available on android only
  */
-export async function getBatteryData(): Promise<BatteryData | null> {
+export function getBatteryData(): BatteryData | null {
   if (!BatteryPlusModule.getBatteryData) {
     return null;
   }
-  return (await BatteryPlusModule.getBatteryData()) as BatteryData;
+  return BatteryPlusModule.getBatteryData() as BatteryData;
 }
