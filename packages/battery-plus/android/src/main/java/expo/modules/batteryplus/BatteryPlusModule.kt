@@ -1,5 +1,9 @@
 package expo.modules.batteryplus
 
+import android.content.Intent
+import android.content.IntentFilter
+import android.os.BatteryManager
+import expo.modules.kotlin.exception.Exceptions
 import expo.modules.kotlin.modules.Module
 import expo.modules.kotlin.modules.ModuleDefinition
 
@@ -7,7 +11,7 @@ class BatteryPlusModule : Module() {
   override fun definition() = ModuleDefinition {
     Name("BatteryPlus")
 
-    Function("getBatteryData") { ->
+    Function("getBatteryData") {
       val context = appContext.reactContext ?: throw Exceptions.ReactContextLost()
       val intent =  IntentFilter(Intent.ACTION_BATTERY_CHANGED).let { filter ->
         context.registerReceiver(null, filter)

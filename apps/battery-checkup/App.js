@@ -34,9 +34,7 @@ export default function App() {
     Brightness.getBrightnessAsync().then((brightness) =>
       setBrightness(brightness)
     );
-    BatteryPlus.getBatteryData().then((batteryData) =>
-      setBatteryData(batteryData)
-    );
+    setBatteryData(BatteryPlus.getBatteryData());
   }, []);
 
   return (
