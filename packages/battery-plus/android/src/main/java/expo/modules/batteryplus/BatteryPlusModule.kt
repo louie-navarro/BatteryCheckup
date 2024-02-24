@@ -1,18 +1,12 @@
 package expo.modules.batteryplus
 
-import android.content.Intent
-import android.content.IntentFilter
-import android.os.BatteryManager
-import expo.modules.kotlin.exception.Exceptions
 import expo.modules.kotlin.modules.Module
 import expo.modules.kotlin.modules.ModuleDefinition
 
-class ExpoBatteryPlusModule : Module() {
+class BatteryPlusModule : Module() {
   override fun definition() = ModuleDefinition {
-    Name("ExpoBatteryPlus")
+    Name("BatteryPlus")
 
-    // Defines a JavaScript function that always returns a Promise and whose native code
-    // is by default dispatched on the different thread than the JavaScript runtime runs on.
     AsyncFunction("getBatteryData") { ->
       val context = appContext.reactContext ?: throw Exceptions.ReactContextLost()
       val intent =  IntentFilter(Intent.ACTION_BATTERY_CHANGED).let { filter ->
@@ -33,8 +27,6 @@ class ExpoBatteryPlusModule : Module() {
       return@AsyncFunction mapOf("health" to healthText)
     }
 
-    // Enables the module to be used as a native view. Definition components that are accepted as part of
-    // the view definition: Prop, Events.
-
+  }
   }
 }

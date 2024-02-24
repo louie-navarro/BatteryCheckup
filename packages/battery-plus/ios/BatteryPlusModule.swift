@@ -1,7 +1,7 @@
 import ExpoModulesCore
 
-public class ExpoBatteryPlusModule: Module {
+public class BatteryPlusModule: Module {
   public func definition() -> ModuleDefinition {
-    Name("ExpoBatteryPlus")
+    Name("BatteryPlus")
   }
 }
