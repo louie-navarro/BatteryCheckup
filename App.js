@@ -2,7 +2,6 @@ import { StatusBar } from 'expo-status-bar';
 import { usePowerState, BatteryState, useLowPowerMode } from 'expo-battery';
 import * as Brightness from 'expo-brightness';
 import * as Location from 'expo-location';
-import MapView from 'react-native-maps';
 import { StyleSheet, Text, View } from 'react-native';
 import { useEffect, useState } from 'react';
 import * as Device from 'expo-device';
@@ -13,8 +12,8 @@ export default function App() {
   const [brightness, setBrightness] = useState();
   const [location, setLocation] = useState(null);
   const [deviceAddress, setAddress] = useState('');
-  const [errorMsg, setErrorMsg] = useState(null);
   const [region, setRegion] = useState(null);
+  const [errorMsg, setErrorMsg] = useState(null);
 
   useEffect(() => {
     (async () => {
