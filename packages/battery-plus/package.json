@@ -1,0 +1,40 @@
+{
+  "name": "battery-plus",
+  "version": "0.1.0",
+  "description": "Battery module but more",
+  "main": "build/index.js",
+  "types": "build/index.d.ts",
+  "scripts": {
+    "build": "expo-module build",
+    "clean": "expo-module clean",
+    "lint": "expo-module lint",
+    "test": "expo-module test",
+    "prepare": "expo-module prepare",
+    "prepublishOnly": "expo-module prepublishOnly",
+    "expo-module": "expo-module"
+  },
+  "keywords": [
+    "react-native",
+    "expo",
+    "battery-plus",
+    "BatteryPlus"
+  ],
+  "repository": "https://github.com/louie-navarro/BatteryCheckup",
+  "bugs": {
+    "url": "https://github.com/louie-navarro/BatteryCheckup/issues"
+  },
+  "author": "Louie Navarro <louie.navarro@asurion.com> (https://github.com/louie-navarro)",
+  "license": "MIT",
+  "homepage": "https://github.com/louie-navarro/BatteryCheckup#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "@types/react": "^18.0.25",
+    "expo-module-scripts": "^3.4.0",
+    "expo-modules-core": "^1.11.2"
+  },
+  "peerDependencies": {
+    "expo": "*",
+    "react": "*",
+    "react-native": "*"
+  }
+}
