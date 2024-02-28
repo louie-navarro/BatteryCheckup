@@ -13,7 +13,6 @@ export default function App() {
   const [brightness, setBrightness] = useState();
   const [location, setLocation] = useState(null);
   const [deviceAddress, setAddress] = useState('');
-  const [region, setRegion] = useState(null);
   const [errorMsg, setErrorMsg] = useState(null);
   const [batteryData, setBatteryData] = useState(null);
 
@@ -39,12 +38,6 @@ export default function App() {
         longitude: location.coords.longitude,
       });
       setAddress(`${address[0].city}, ${address[0].country}`);
-      setRegion({
-        latitude: location.coords.latitude,
-        longitude: location.coords.longitude,
-        latitudeDelta: location.coords.latitudeDelta,
-        longitudeDelta: location.coords.longitudeDelta,
-      });
     })();
   }, []);
 
@@ -96,19 +89,6 @@ export default function App() {
         <Text style={styles.bold}>Address: </Text>
         {location && deviceAddress && <Text>{deviceAddress}</Text>}
       </Text>
-      {location && region ? (
-        <MapView
-          initialRegion={{
-            latitude: region.latitude,
-            longitude: region.longitude,
-            longitudeDelta: region.longitudeDelta,
-            latitudeDelta: region.longitudeDelta,
-          }}
-          onRegionChange={region}
-        />
-      ) : (
-        <Text>Unable to load Map View</Text>
-      )}
 
       <Text style={{ fontWeight: 'bold' }}>{'\n'}android only:</Text>
       <Text>platformApiLevel: {Device.platformApiLevel}</Text>
